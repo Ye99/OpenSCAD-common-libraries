@@ -1,3 +1,10 @@
+// 1/4 inch screw parameters
+one_fourth_screw_hole_tap_diameter=5.7;
+one_fourth_screw_thread_diamater= 6; //6.35;
+// No-drag through-hole diameter
+one_fourth_screw_hole_diameter=one_fourth_screw_hole_tap_diameter+0.7;
+one_fourth_screw_stem_length=30;
+one_fourth_screw_head_diameter=12;
  
 // #4 screw parameters
 number4_screw_hole_tap_diameter=2.78;
