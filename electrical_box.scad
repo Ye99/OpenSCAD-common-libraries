@@ -101,7 +101,7 @@ module electricalbox_cover(width=width, length=length, height=height, screw_pos=
 
                 // Outlet opening and screw hole
                 rotate([0,0,90]) 
-                    translate([-length/2+12, 0, 0]) // why is this magic number?
+                    translate([-length/2+cover_holes_x_offset, 0, 0]) 
                         union() {
                             translate([height+19.3915, 0, 0]) 
                             {

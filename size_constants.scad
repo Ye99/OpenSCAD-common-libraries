@@ -12,11 +12,15 @@ wall_double_thickness=4; // [1:4]
 
 /* Don't change these values
     Inner space length.
-    If you change this, you must update screw_posistion_from_edge (in this file) and 
-    the value at "why is this magic number?" in electrical_box.scad accordingly.
+    If you change this, you must update screw_posistion_from_edge. 
+    New value delta is D, update screw_posistion_from_edge with D/2.
 */
-length=106; 
+length=107; 
 
 // Outlet screw off set from edge. Change according to your measurement with caution!
 // My desin references x,y,z 0 (center), and thus changing wall thickness won't inerference screw_position.
-screw_posistion_from_edge=11; // Outlet screw holes are 84mm apart. Must be precise!
+screw_posistion_from_edge=11.5; 
+
+ assert(length-screw_posistion_from_edge*2==84, "Outlet screw holes are 84mm apart. Must be precise!");
+
+cover_holes_x_offset=screw_posistion_from_edge+1;
