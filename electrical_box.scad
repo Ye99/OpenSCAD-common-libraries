@@ -21,9 +21,6 @@ wires_hole_width=11; // [8:12]
 // The height of hole to run the mains input wires (mm)
 wires_hole_height=6; // [4:12]
 
-// This is relay control wire. For three wires recommend 8.
-relay_control_wires_hole_diameter=0; // [0:12]. 
-
 // Radius of rounded corner
 rounded_corner_radius=2;
 
@@ -34,11 +31,13 @@ cover_alignment_tab_thickness=wall_double_thickness*2;
 // The larger this value, the more cover free-play allowed.
 cover_alignment_tab_tolerance=0.2;
 
+has_out_wire_hole = true;
+
 electricalbox(part);
 
 module electricalbox(part) {
     if (part == "bottom") {
-        electricalbox_buttom();
+        electricalbox_buttom(has_out_wire_hole=has_out_wire_hole);
     } else if (part == "cover") {
         right(wall_double_thickness)
             electricalbox_cover();
@@ -58,7 +57,7 @@ module put_cover_to_z_zero() {
 }
 
 module electricalbox_all() {
-    electricalbox_buttom();
+    electricalbox_buttom(has_out_wire_hole=has_out_wire_hole);
 
     // This put cover next to box
     translate([width+(wall_double_thickness*2), 0, 0])
@@ -72,9 +71,6 @@ support_cylinder_scale_factor=2.1;
 // distance between supporting cylinder and box top
 cylinder_top_gap=5.5-wall_double_thickness; // deduct cover thickness so the outlet will be flush.
 
-// Outlet screw off set from edge. Change according to your measurement with caution!
-// My desin references x,y,z 0 (center), and thus changing wall thickness won't inerference screw_position.
-screw_posistion_from_edge=11; // Outlet screw holes are 84mm apart. Must be precise!
 
 // Cover wall height in mm, not including cover thickness.
 cover_wall_height=3;
@@ -131,7 +127,7 @@ module electricalbox_cover(width=width, length=length, height=height, screw_pos=
     }
 }
 
-module box_walls(ow_width, ow_length, ow_height) {
+module box_walls(ow_width, ow_length, ow_height, has_out_wire_hole) {
         difference() {
             // box walls
             difference() {
@@ -143,15 +139,19 @@ module box_walls(ow_width, ow_length, ow_height) {
                     roundedCube([width, length, height], center=true, r=rounded_corner_radius);
             } 
         
-           // mains input wires hole on side wall
-           translate([ow_width/2, -(ow_length/4), -ow_height/4])
+            // mains input wires hole on side wall
+            translate([ow_width/2, -(ow_length/4), -ow_height/4])
                 // cube's x, y, z parameters confirm to the overall axes, making reasoning simple. 
                 cube([wall_double_thickness*2, wires_hole_width, wires_hole_height], center=true);
             
-           // control input wires hole on the other side wall
-           translate([-ow_width/2, (ow_length/4), -ow_height/3])
-            rotate([0, 90, 0])
-                cylinder(d=relay_control_wires_hole_diameter, h=wall_double_thickness, center=true, $fn=50);
+            
+            // output wire hole to chain several electrical boxex
+            if (has_out_wire_hole) {
+                // mains input wires hole on side wall
+                translate([-ow_width/2, -(ow_length/4), -ow_height/4])
+                    // cube's x, y, z parameters confirm to the overall axes, making reasoning simple. 
+                    cube([wall_double_thickness*2, wires_hole_width, wires_hole_height], center=true);
+            }
     }
 }
 
@@ -196,16 +196,16 @@ module lengh_support(ow_width, ow_height, wall_double_thickness) {
 }
 
 /*
- * Function electricalbox_buttom()
- * Draw the box bottom
+ * has_out_wire_hole default is false. If set to true, out wire hole is created and thus several electrical boxes can be chained. 
+ * 
  */
-module electricalbox_buttom(width=width, length=length, height=height, screw_pos=screw_posistion_from_edge) {
+module electricalbox_buttom(width=width, length=length, height=height, screw_pos=screw_posistion_from_edge, has_out_wire_hole=false) {
     ow_width = width+wall_double_thickness;
     ow_length = length+wall_double_thickness;
     ow_height = height+wall_double_thickness/2;
     
     put_bottom_to_z_zero() {
-        box_walls(ow_width, ow_length, ow_height);
+        box_walls(ow_width, ow_length, ow_height, has_out_wire_hole);
           
         // outlet screw cylinder
         outlet_screw_cylinder(length, ow_height, screw_pos);
@@ -224,6 +224,4 @@ module electricalbox_buttom(width=width, length=length, height=height, screw_pos
             xrot(180)
                 %electricalbox_cover();
     }
-    
-
 }
