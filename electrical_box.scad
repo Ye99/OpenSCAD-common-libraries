@@ -7,6 +7,10 @@ include <size_constants.scad>
 use <roundedCube.scad>
 use <BOSL/transforms.scad>
 
+// Default is defined in size_constants.
+// This is to print standalone shallow electrical box. 
+// height=24;
+
 // Choose, which part you want to see!
 part = "all_parts__";  //[all:All Parts,bottom:ElectrialBoxBottom,cover:ElectricalBoxCover]
 
