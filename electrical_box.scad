@@ -43,8 +43,7 @@ module electricalbox(part) {
     if (part == "bottom") {
         electricalbox_buttom(has_out_wire_hole=has_out_wire_hole);
     } else if (part == "cover") {
-        right(wall_double_thickness)
-            electricalbox_cover();
+        electricalbox_cover();
     } else if (part == "all") {
         electricalbox_all();
     }
