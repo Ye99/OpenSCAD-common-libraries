@@ -6,6 +6,15 @@ one_fourth_screw_hole_diameter=one_fourth_screw_hole_tap_diameter+0.7;
 one_fourth_screw_stem_length=30;
 one_fourth_screw_head_diameter=12;
  
+// #5 screw parameters
+// To complete following https://amesweb.info/Screws/metric-external-thread-dimensions-chart.aspx
+// number5_screw_hole_tap_diameter=2.78;
+number5_screw_thread_diamater=5;
+// No-drag through-hole diameter
+number5_screw_hole_diameter=number5_screw_thread_diamater+0.7;
+number5_screw_stem_length=8;
+number5_screw_head_diameter=8;
+ 
 // #4 screw parameters
 number4_screw_hole_tap_diameter=2.78;
 number4_screw_thread_diamater=2.84;
