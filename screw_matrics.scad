@@ -13,7 +13,7 @@ number5_screw_thread_diamater=5;
 // No-drag through-hole diameter
 number5_screw_hole_diameter=number5_screw_thread_diamater+0.7;
 number5_screw_stem_length=8;
-number5_screw_head_diameter=8;
+number5_screw_head_diameter=9.5;
  
 // #4 screw parameters
 number4_screw_hole_tap_diameter=2.78;
@@ -21,7 +21,7 @@ number4_screw_thread_diamater=2.84;
 // No-drag through-hole diameter
 number4_screw_hole_diameter=number4_screw_thread_diamater+0.7;
 number4_screw_stem_length=8;
-number4_screw_head_diameter=5.5;
+number4_screw_head_diameter=8; // Actual 7. Leave free movement space when this screw is used to cut hole. 
 
 // M3 screw parameters
 m3_screw_hole_tap_diameter=2.9;
