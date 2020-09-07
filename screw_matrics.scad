@@ -6,15 +6,25 @@ one_fourth_screw_hole_diameter=one_fourth_screw_hole_tap_diameter+0.7;
 one_fourth_screw_stem_length=30;
 one_fourth_screw_head_diameter=12;
  
-// #5 screw parameters
+// M5 screw parameters
 // To complete following https://amesweb.info/Screws/metric-external-thread-dimensions-chart.aspx
 // number5_screw_hole_tap_diameter=2.78;
-number5_screw_thread_diamater=5;
+M5_screw_thread_diamater=5;
 // No-drag through-hole diameter
-number5_screw_hole_diameter=number5_screw_thread_diamater+0.7;
-number5_screw_stem_length=8;
-number5_screw_head_diameter=9.5;
- 
+M5_screw_hole_diameter=M5_screw_thread_diamater+0.7;
+M5_screw_stem_length=8;
+M5_screw_head_diameter=9.5;
+
+// M4 screw parameters
+// To complete following https://amesweb.info/Screws/metric-external-thread-dimensions-chart.aspx
+// m4_screw_hole_tap_diameter=2.78;
+M4_screw_thread_diamater=4;
+// No-drag through-hole diameter
+M4_screw_hole_diameter=M4_screw_thread_diamater+0.7;
+M4_screw_stem_length=8;
+M4_screw_head_diameter=8;
+
+// Nubmer 4 (Unified Thread Standard, UTS) isn't M4 (metric)
 // #4 screw parameters
 number4_screw_hole_tap_diameter=2.78;
 number4_screw_thread_diamater=2.84;
