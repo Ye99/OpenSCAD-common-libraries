@@ -41,6 +41,14 @@ m3_screw_hole_diameter=m3_screw_thread_diamater+0.7;
 m3_screw_stem_length=5;
 m3_screw_head_diameter=5.5;
 
+// M2 screw parameters
+m2_screw_hole_tap_diameter=1.8;
+m2_screw_thread_diamater=2;
+// No-drag through-hole diameter
+m2_screw_hole_diameter=m2_screw_thread_diamater+0.6;
+m2_screw_stem_length=20;
+m2_screw_head_diameter=3.5;
+
 // 3.5 x 16 wood screw parameters
 wood_screw_hole_tap_diameter=3.2;
 wood_screw_thread_diamater=3.5;
