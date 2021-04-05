@@ -45,7 +45,7 @@ m3_screw_head_diameter=5.5;
 m2_screw_hole_tap_diameter=1.8;
 m2_screw_thread_diamater=2;
 // No-drag through-hole diameter
-m2_screw_hole_diameter=m2_screw_thread_diamater+0.6;
+m2_screw_hole_diameter=m2_screw_thread_diamater+0.7;
 m2_screw_stem_length=20;
 m2_screw_head_diameter=3.5;
 
