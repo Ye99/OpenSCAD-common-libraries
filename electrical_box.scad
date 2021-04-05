@@ -1,11 +1,9 @@
 /* By: Ye Zhang (mr.yezhang@gmail.com)
-   Date: May 22, 2020
-    Electrical box module. 
-*/
+   Electrical box module. */
 
 include <size_constants.scad>
 use <roundedCube.scad>
-use <BOSL/transforms.scad>
+use <../BOSL/transforms.scad>
 
 // Default is defined in size_constants.
 // This is to print standalone shallow electrical box. 
